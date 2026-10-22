@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permission to write to external storage (Downloads folder) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <!-- Notification permission for Android 13+ -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    
+    <!-- Receive boot completed to reschedule alarms -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:name=".FinanceApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+        <profileable
+            android:shell="true"
+            tools:targetApi="29" />
+        
+        <!-- Downloadable fonts meta-data -->
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <!-- App Startup optimization -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+
+            <!-- Main app initializer -->
+            <meta-data
+                android:name="com.example.myapplication.startup.AppInitializer"
+                android:value="androidx.startup" />
+
+            <!-- Database initializer (critical, loads first) -->
+            <meta-data
+                android:name="com.example.myapplication.startup.DatabaseInitializer"
+                android:value="androidx.startup" />
+
+            <!-- Theme initializer (independent) -->
+            <meta-data
+                android:name="com.example.myapplication.startup.ThemeInitializer"
+                android:value="androidx.startup" />
+
+            <!-- Lazy initializer (non-critical, loads on demand) -->
+            <meta-data
+                android:name="com.example.myapplication.startup.LazyInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
+        <!-- FileProvider for sharing exported files -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.MyApplication">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Notification receiver for alarm-triggered notifications -->
+        <receiver
+            android:name=".notification.NotificationReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.myapplication.DAILY_REMINDER" />
+                <action android:name="com.example.myapplication.SUBSCRIPTION_CHECK" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

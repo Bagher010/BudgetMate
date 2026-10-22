@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Preserve the user's finance records and app settings across device backups. -->
+    <include domain="database" path="." />
+    <include domain="sharedpref" path="." />
+</full-backup-content>
