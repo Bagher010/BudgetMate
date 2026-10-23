@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" alt="BudgetMate app logo" width="180" />
+  <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" alt="BudgetMate app logo" width="260" />
   <h1>BudgetMate</h1>
   <p><strong>Native Android personal finance app for tracking income, expenses, subscriptions, and shared costs, with Material 3 design.</strong></p>
   <p>
