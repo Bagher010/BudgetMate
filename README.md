@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" alt="BudgetMate app logo" width="112" />
+  <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" alt="BudgetMate app logo" width="180" />
   <h1>BudgetMate</h1>
   <p><strong>Native Android personal finance app for tracking income, expenses, subscriptions, and shared costs, with Material 3 design.</strong></p>
   <p>
@@ -16,7 +16,6 @@
 <p align="center">
   <a href="#features">Features</a> ·
   <a href="#technology">Technology</a> ·
-  <a href="#build">Build</a> ·
   <a href="#privacy">Privacy</a>
 </p>
 
@@ -39,22 +38,6 @@
 - AndroidX Navigation
 - Room for on-device finance records
 - WorkManager for scheduled reminders
-
-## Build
-
-Open the project in Android Studio and run the `standardDebug` variant, or build it from the terminal:
-
-```bash
-./gradlew assembleStandardDebug
-```
-
-To build a release bundle, configure `BUDGETMATE_UPLOAD_STORE_FILE`, `BUDGETMATE_UPLOAD_STORE_PASSWORD`, `BUDGETMATE_UPLOAD_KEY_ALIAS`, and `BUDGETMATE_UPLOAD_KEY_PASSWORD`, then run:
-
-```bash
-./gradlew bundleStandardRelease
-```
-
-Never commit the upload keystore or its passwords.
 
 ## Privacy
 
