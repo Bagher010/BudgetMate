@@ -29,7 +29,6 @@
 - Track subscriptions, billing cycles, and upcoming payments.
 - Keep shared costs with contacts, including money lent, borrowed, and split.
 - Configure available reminders and choose a light, dark, or system theme.
-- See an animated introduction the first time the app opens.
 
 ## Technology
 
